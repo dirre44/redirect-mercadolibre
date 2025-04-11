@@ -2,10 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://www.mercadolibre.com">
-  <title>Redirigiendo...</title>
+  <title>Code de Mercado Libre</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .code-box {
+      padding: 10px;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-  <p>Si no eres redirigido automáticamente, haz clic <a href="https://www.mercadolibre.com">aquí</a>.</p>
+  <h1>Autenticación completada ✅</h1>
+  <p>Este es tu código de autorización. Cópialo y úsalo para obtener tu token de acceso:</p>
+  <div class="code-box" id="codeBox">Cargando...</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    const codeBox = document.getElementById("codeBox");
+    if (code) {
+      codeBox.textContent = code;
+    } else {
+      codeBox.textContent = "No se encontró ningún código en la URL.";
+    }
+  </script>
 </body>
 </html>
